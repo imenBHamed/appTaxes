@@ -3,12 +3,21 @@ package com.app.entities;
 import java.io.Serializable;
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
  
+ @Entity
 public class Entreprise implements Serializable{
+	 @Id @GeneratedValue
 	private long code;
 	private String nom;
 	private String email;
 	private String raisonSociale;
+	@OneToMany(mappedBy="entreprise",fetch=FetchType.LAZY)
 	private Collection<Taxe> taxes;
 	public Entreprise() {
 		super();
