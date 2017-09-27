@@ -1,5 +1,9 @@
 package com.app.dao;
 
-public interface EntrepriseRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.app.entities.Entreprise;
+
+public interface EntrepriseRepository extends JpaRepository<Entreprise, Long> {
 
 }
