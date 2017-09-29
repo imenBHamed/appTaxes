@@ -10,9 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
  
- @Entity
+@Entity
 public class Entreprise implements Serializable{
-	 @Id @GeneratedValue
+	@Id @GeneratedValue
 	private long code;
 	private String nom;
 	private String email;
