@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.themyleaf.org">
 <head>
 <meta charset="utf-8"/>
 <title>Entreprises</title>
 </head>
 <body>
 <h1>Test Entreprise</h1>
+<div>
+<table>
+<tr><th>Code</th><th>Nom</th><th>Raison Sociale</th><th>Email</th></tr>
+<tr th:each="e:${listEntreprises}">
+<td th:text="${e.code}"></td>
+<td th:text="${e.nom}"></td>
+<td th:text="${e.raisonSociale}"></td>
+<td th:text="${e.email}"></td></tr>
+</table></div>
 </body>
 </html>

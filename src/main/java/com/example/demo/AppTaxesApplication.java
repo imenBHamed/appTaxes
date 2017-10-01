@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import com.app.dao.EntrepriseRepository;
@@ -16,6 +17,7 @@ import com.app.entities.IR;
 import com.app.entities.TVA;
 
 @SpringBootApplication
+@ComponentScan(basePackages={"com.app.web"})
 @EntityScan("com.app.entities")
 @EnableJpaRepositories("com.app.dao")
 public class AppTaxesApplication implements CommandLineRunner {
