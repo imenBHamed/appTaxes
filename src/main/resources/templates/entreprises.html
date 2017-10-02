@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.themyleaf.org">
+<html xmlns:th="http://www.themyleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template1">
 <head>
 <meta charset="utf-8"/>
 <title>Entreprises</title>
 </head>
 <body>
+<div layout:fragment="content">
 <h1>Test Entreprise</h1>
 <div>
 <table>
@@ -15,5 +18,6 @@
 <td th:text="${e.raisonSociale}"></td>
 <td th:text="${e.email}"></td></tr>
 </table></div>
+</div>
 </body>
 </html>
