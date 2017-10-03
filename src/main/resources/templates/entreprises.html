@@ -13,7 +13,13 @@
 				<h3>Test Entreprise</h3>
 			</div>
 			<div class="panel-body">
-				 
+				 <div class="container">
+				 <form th:action="@{/entreprises}" method="get">
+				    <label>Mot Clé</label>
+				    <input type="text" name="motCle"/>
+				    <button type="submit" class="btn btn-primary"> Chercher</button>
+				 </form>
+				 </div>
 					<table class="table table-striped">
 						<tr>
 							<th>Code</th>
@@ -31,7 +37,7 @@
 				<div>
 				<ul class="nav nav-pills">
 				<li  th:each="p,status:${page}" th:class="${status.index==pageCourante}? 'active' : '' ">
-				<a th:href="@{/entreprises(page=${status.index},size=4)}" th:text="${status.index}"></a></li>
+				<a th:href="@{/entreprises(page=${status.index},motCle=${motCle})}" th:text="${status.index}"></a></li>
 				</ul>
 				
 				</div>
