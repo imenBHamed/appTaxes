@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.themyleaf.org"
-xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-layout:decorator="template1">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="template1">
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <title>Entreprises</title>
 </head>
 <body>
-<div layout:fragment="content">
-<h1>Test Entreprise</h1>
-<div>
-<table>
-<tr><th>Code</th><th>Nom</th><th>Raison Sociale</th><th>Email</th></tr>
-<tr th:each="e:${listEntreprises}">
-<td th:text="${e.code}"></td>
-<td th:text="${e.nom}"></td>
-<td th:text="${e.raisonSociale}"></td>
-<td th:text="${e.email}"></td></tr>
-</table></div>
-</div>
+	<div layout:fragment="content" class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3>Test Entreprise</h3>
+			</div>
+			<div class="panel-body">
+				 
+					<table class="table table-striped">
+						<tr>
+							<th>Code</th>
+							<th>Nom</th>
+							<th>Raison Sociale</th>
+							<th>Email</th>
+						</tr>
+						<tr th:each="e:${listEntreprises}">
+							<td th:text="${e.code}"></td>
+							<td th:text="${e.nom}"></td>
+							<td th:text="${e.raisonSociale}"></td>
+							<td th:text="${e.email}"></td>
+						</tr>
+					</table>
+				<div>
+				<ul class="nav nav-pills">
+				<li  th:each="p,status:${page}" th:class="${status.index==pageCourante}? 'active' : '' ">
+				<a th:href="@{/entreprises(page=${status.index},size=4)}" th:text="${status.index}"></a></li>
+				</ul>
+				
+				</div>
+			</div>
+		</div>
+
+
+	</div>
 </body>
 </html>
