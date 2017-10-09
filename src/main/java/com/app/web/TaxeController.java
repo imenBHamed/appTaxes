@@ -35,5 +35,10 @@ public class TaxeController {
 		model.addAttribute("motCle", motCle);
 		return "entreprises";
 	}
+	@RequestMapping(value="/formEntreprise")
+	public String form(Model model){
+		model.addAttribute("entreprise", new Entreprise());
+		return "formEntreprise";
+	}
 
 }
