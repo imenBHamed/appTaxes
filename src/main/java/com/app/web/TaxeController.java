@@ -41,4 +41,9 @@ public class TaxeController {
 		return "formEntreprise";
 	}
 
+	@RequestMapping(value="/saveEntreprise")
+	public String save(Model model, Entreprise e){
+		entrepriseRepository.save(e);
+		return "redirect:/entreprises";
+	}
 }
