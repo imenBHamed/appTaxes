@@ -18,17 +18,20 @@
 						<div class="form-group">
 							<label class="control-label">Nom:</label> <input
 								class="form-control" type="text" name="nom"
-								th:value="${entreprise.nom}" /> <span></span>
+								th:value="${entreprise.nom}" />
+								 <span class="text-danger" th:errors="${entreprise.nom}"></span>
 						</div>
 						<div class="form-group">
 							<label class="control-label">Raison Sociale:</label> <input
 								class="form-control" type="text" name="raisonSociale"
-								th:value="${entreprise.raisonSociale}" /> <span></span>
+								th:value="${entreprise.raisonSociale}" /> 
+								<span class="text-danger" th:errors="${entreprise.raisonSociale}"></span>
 						</div>
 						<div class="form-group">
 							<label class="control-label">Email:</label> <input
 								class="form-control" type="text" name="email"
-								th:value="${entreprise.email}" /> <span></span>
+								th:value="${entreprise.email}" /> 
+								<span class="text-danger" th:errors="${entreprise.email}"></span>
 						</div>
 						<button class="btn btn-primary" type="submit">Enregistrer</button>
 					</form>
