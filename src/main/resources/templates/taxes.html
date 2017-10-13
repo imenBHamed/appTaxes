@@ -10,12 +10,16 @@
 	<div layout:fragment="content" class="container">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3>Test Entreprise</h3>
+				<h3>Liste des Entreprises</h3>
 			</div>
 			<div class="panel-body">
 				<div class="container">
-					<form th:action="@{/entreprises}" method="get">
-						<label>Mot Clé</label> <input type="text" name="motCle" />
+					<form th:action="@{/taxes}" method="get" id="myForm">
+						<label>Entreprise : </label> 
+						<select name="code" onchange="document.getElementById(myForm).submit()">
+						<option th:each="e:${entreprises}" th:text="${e.nom}" th:value="${e.code}"> </option>
+						</select>
+						 
 						<button type="submit" class="btn btn-primary">Chercher</button>
 					</form>
 				</div>
