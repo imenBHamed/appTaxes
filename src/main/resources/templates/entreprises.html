@@ -32,6 +32,7 @@
 							<td th:text="${e.nom}"></td>
 							<td th:text="${e.raisonSociale}"></td>
 							<td th:text="${e.email}"></td>
+							<td ><a th:href="@{/taxes(code=${e.code})}"> Taxes</a></td>
 						</tr>
 					</table>
 				<div>

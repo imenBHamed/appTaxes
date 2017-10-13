@@ -1,6 +1,5 @@
 package com.app.web;
 
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -15,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.dao.EntrepriseRepository;
+import com.app.dao.TaxesRepository;
 import com.app.entities.Entreprise;
 
 @Controller
@@ -22,6 +22,9 @@ public class TaxeController {
 
 	@Autowired
 	private EntrepriseRepository entrepriseRepository;
+	
+	@Autowired
+	private TaxesRepository taxesRepository;
 
 	@RequestMapping(value = "/entreprises", method = RequestMethod.GET)
 	public String index(Model model,
@@ -52,5 +55,13 @@ public class TaxeController {
 			return "formEntreprise";
 		entrepriseRepository.save(e);
 		return "redirect:/entreprises";
+	}
+	
+	@RequestMapping(value = "/taxes")
+	public String save(Model model, Long code) {
+		Entreprise e= new Entreprise();
+		e.setCode(code);
+	 model.addAttribute("taxes", taxesRepository.findByEntreprise(e));
+		return "taxes";
 	}
 }
