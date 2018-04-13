@@ -11,12 +11,12 @@ public class SecurityController {
 		}
 	
 	@RequestMapping("/")
-	public String home(){
+	public String home() {
 		return "redirect:/entreprises";
 	}
 	
 	@RequestMapping("/403")
-	public String accessDenied(){
+	public String accessDenied() {
 		return "403";
 	}
 	
